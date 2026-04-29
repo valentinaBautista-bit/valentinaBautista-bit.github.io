@@ -1,528 +1,289 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valentina Bautista</title>
-  <style>
-    /* ===== Reset & Base ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    :root {
-      --bg: #0f0f17;
-      --surface: #1a1a2e;
-      --accent1: #e040fb;
-      --accent2: #7c4dff;
-      --text: #e8e8f0;
-      --muted: #9090a8;
-      --card: #22223a;
-      --radius: 16px;
-    }
+  <!-- Metadata -->
+  <meta name="keywords" content="Valentina Bautista, portafolio, hoja de vida, CV, desarrolladora, ingeniería de sistemas, desarrollo web, proyectos, Cúcuta, Colombia, USB, Universidad Simón Bolívar, Flutter, Python, Java, HTML, CSS, JavaScript">
 
-    html { scroll-behavior: smooth; }
+  <title>Hoja de vida | Valentina Bautista</title>
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+ 
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
 
-    a { color: var(--accent1); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-    /* ===== Nav ===== */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      background: rgba(15, 15, 23, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .nav-logo {
-      font-size: 1.2rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--muted); font-size: 0.95rem; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--text); text-decoration: none; }
-
-    /* ===== Hero ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(224,64,251,0.18) 0%, transparent 70%);
-      top: -100px; left: 50%;
-      transform: translateX(-50%);
-      pointer-events: none;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(124,77,255,0.15) 0%, transparent 70%);
-      bottom: 80px; right: 10%;
-      pointer-events: none;
-    }
-
-    .avatar {
-      width: 130px; height: 130px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.2rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 40px rgba(224,64,251,0.35);
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.1;
-      position: relative; z-index: 1;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero .tagline {
-      margin-top: 1rem;
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: var(--muted);
-      max-width: 540px;
-      position: relative; z-index: 1;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      position: relative; z-index: 1;
-    }
-
-    .btn {
-      padding: 0.75rem 2rem;
-      border-radius: 50px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn:hover { transform: translateY(-2px); text-decoration: none; }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(224,64,251,0.4);
-    }
-    .btn-primary:hover { box-shadow: 0 6px 28px rgba(224,64,251,0.55); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1.5px solid rgba(255,255,255,0.2);
-    }
-    .btn-outline:hover { border-color: var(--accent1); color: var(--accent1); }
-
-    /* ===== Sections common ===== */
-    section { padding: 5rem 2rem; }
-    .section-inner { max-width: 900px; margin: 0 auto; }
-
-    .section-title {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title span {
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .section-line {
-      width: 50px; height: 4px;
-      border-radius: 2px;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      margin-bottom: 2.5rem;
-    }
-
-    /* ===== About ===== */
-    #about { background: var(--surface); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    .about-text p { color: var(--muted); margin-bottom: 1rem; font-size: 1.05rem; }
-
-    .about-facts { display: flex; flex-direction: column; gap: 1rem; }
-
-    .fact-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .fact-card:hover { border-color: var(--accent1); transform: translateX(4px); }
-
-    .fact-icon { font-size: 1.6rem; }
-
-    .fact-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
-    .fact-value { font-size: 1rem; font-weight: 600; }
-
-    /* ===== Skills ===== */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.06);
-      transition: border-color 0.25s, transform 0.25s;
-    }
-
-    .skill-card:hover { border-color: var(--accent2); transform: translateY(-4px); }
-
-    .skill-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
-    .skill-card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .skill-card p { color: var(--muted); font-size: 0.9rem; }
-
-    .skill-bar-wrap { margin-top: 0.75rem; background: rgba(255,255,255,0.08); border-radius: 4px; height: 5px; }
-    .skill-bar {
-      height: 5px; border-radius: 4px;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      transition: width 0.8s ease;
-    }
-
-    /* ===== Contact ===== */
-    #contact { background: var(--surface); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    .contact-text p { color: var(--muted); font-size: 1.05rem; margin-bottom: 1.5rem; }
-
-    .social-links { display: flex; flex-direction: column; gap: 0.8rem; }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 0.9rem 1.2rem;
-      color: var(--text);
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: border-color 0.2s, color 0.2s, transform 0.2s;
-    }
-
-    .social-link:hover {
-      border-color: var(--accent1);
-      color: var(--accent1);
-      text-decoration: none;
-      transform: translateX(4px);
-    }
-
-    .social-link .sl-icon { font-size: 1.4rem; }
-
-    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-
-    .form-group label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 0.4rem; }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      background: var(--card);
-      border: 1.5px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 0.8rem 1rem;
-      color: var(--text);
-      font-size: 0.95rem;
-      font-family: inherit;
-      transition: border-color 0.2s;
-      resize: vertical;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent1);
-    }
-
-    .form-group textarea { min-height: 120px; }
-
-    /* ===== Footer ===== */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    footer span {
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="main.css"/>
 </head>
-<body>
 
-  <!-- Navigation -->
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
   <nav>
-    <div class="nav-logo">Valentina B.</div>
-    <ul class="nav-links">
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#skills">Habilidades</a></li>
-      <li><a href="#contact">Contacto</a></li>
+    <a href="#home" class="nav-logo">Vale<span>.</span></a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active" data-nav>Inicio</a></li>
+      <li><a href="#about" data-nav>Sobre mí</a></li>
+      <li><a href="#projects" data-nav>Proyectos</a></li>
+      <li><a href="#contact" data-nav>Contáctame</a></li>
     </ul>
+
+    <div class="nav-right">
+      <button class="lang-btn" id="langBtn" aria-label="Cambiar idioma">ES</button>
+      <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema"></button>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="avatar">🌸</div>
-    <h1>Hola, soy <span>Valentina</span></h1>
-    <p class="tagline">Desarrolladora apasionada por construir experiencias digitales bonitas y funcionales ✨</p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn btn-primary">📬 Contáctame</a>
-      <a href="#about" class="btn btn-outline">Conoce más →</a>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="mobile-link" data-nav>Inicio</a>
+    <a href="#about" class="mobile-link" data-nav>Sobre mí</a>
+    <a href="#projects" class="mobile-link" data-nav>Proyectos</a>
+    <a href="#contact" class="mobile-link" data-nav>Contáctame</a>
+  </div>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="reveal">
+      <p class="home-greeting" data-i18n="home_greeting">Bienvenida a mi portafolio</p>
+
+      <h1 class="home-title">
+        <span data-i18n="home_hi">Hola, soy</span><br>
+        <!-- meta character invisible (zero-width space) dentro del nombre -->
+        <span class="name">Valen&#8203;tina Bautista</span>
+      </h1>
+
+      <p class="home-role">
+        <span id="typeText"></span>
+        <span id="typeIcon" aria-hidden="true"></span>
+        <span class="cursor"></span>
+      </p>
+
+      <p class="home-desc" data-i18n="home_intro">
+        Estudiante de Ingeniería de Sistemas (USB). Me apasiona la tecnología, el desarrollo web y descubrir cosas nuevas.
+      </p>
+
+      <div class="btn-group">
+        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-code"></i> <span data-i18n="btn_projects">Ver proyectos</span></a>
+        <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_contact">Contáctame</span></a>
+      </div>
+
+      <div class="stats-bar" aria-label="Estadísticas">
+        <div class="stat"><strong data-target="4">0</strong><span data-i18n="stat_projects">Proyectos</span></div>
+        <div class="stat"><strong data-target="7">0</strong><span data-i18n="stat_semesters">Semestres</span></div>
+        <div class="stat"><strong data-target="6">0</strong><span data-i18n="stat_tech">Tecnologías</span></div>
+      </div>
+    </div>
+
+    <div class="hero-photoWrap reveal r">
+      <div class="tilt" data-tilt>
+        <div class="tilt-inner">
+          <div class="hero-photo morph" data-morph>
+            <img src="valentina.jpeg" alt="Foto de Valentina Bautista">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- ABOUT -->
   <section id="about">
-    <div class="section-inner">
-      <h2 class="section-title">Sobre <span>mí</span></h2>
-      <div class="section-line"></div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>¡Hola! Soy Valentina Bautista, una desarrolladora entusiasta con ganas de aprender y crear cosas increíbles en la web.</p>
-          <p>Me encanta combinar creatividad con código para dar vida a proyectos que tengan impacto real. Disfruto tanto del diseño visual como de la lógica detrás de cada aplicación.</p>
-          <p>Cuando no estoy programando, seguramente estoy explorando nuevas tecnologías, escuchando música o tomando un café ☕.</p>
+    <div class="section-label reveal" data-i18n="about_label">Conóceme</div>
+    <h2 class="section-title reveal"><span data-i18n="about_title_1">Sobre</span> <span data-i18n="about_title_2">mí</span></h2>
+    <div class="divider reveal"></div>
+
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="tilt" data-tilt>
+          <div class="tilt-inner">
+            <div class="about-blob morph" data-morph>
+              <img src="valen.jpeg" alt="Valentina Bautista">
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="about-panel bento reveal r">
+        <div id="aboutText">
+          <p data-i18n="about_p1">
+            Soy estudiante de <strong>Ingeniería de Sistemas</strong> en la <strong>Universidad Simón Bolívar (USB)</strong>, en Cúcuta, Colombia.
+            Me apasiona el desarrollo web y la tecnología.
+          </p>
+          <p data-i18n="about_p2">
+            Me considero una estudiante con ideas innovadoras para ayudar a la humanidad y superar dificultades que se presentan en la comunidad día a día,
+            creando soluciones útiles, accesibles y bien diseñadas.
+          </p>
+          <p data-i18n="about_p3">
+            También me interesa el desarrollo móvil, la investigación y aplicar inteligencia artificial para resolver problemas reales.
+          </p>
+        </div>
+
         <div class="about-facts">
-          <div class="fact-card">
-            <div class="fact-icon">📍</div>
-            <div>
-              <div class="fact-label">Ubicación</div>
-              <div class="fact-value">Colombia</div>
-            </div>
+          <div class="fact bento">
+            <div class="k"><i class="fa-solid fa-laptop-code"></i> <span data-i18n="hl_1k">Enfoque</span></div>
+            <div class="v" data-i18n="hl_1v">Web + Mobile</div>
           </div>
-          <div class="fact-card">
-            <div class="fact-icon">💼</div>
-            <div>
-              <div class="fact-label">Rol</div>
-              <div class="fact-value">Desarrolladora Web</div>
-            </div>
+          <div class="fact bento">
+            <div class="k"><i class="fa-solid fa-brain"></i> <span data-i18n="hl_2k">Interés</span></div>
+            <div class="v" data-i18n="hl_2v">IA + Investigación</div>
           </div>
-          <div class="fact-card">
-            <div class="fact-icon">🎓</div>
-            <div>
-              <div class="fact-label">Formación</div>
-              <div class="fact-value">Ingeniería / Sistemas</div>
-            </div>
+          <div class="fact bento">
+            <div class="k"><i class="fa-solid fa-bolt"></i> <span data-i18n="hl_3k">Estilo</span></div>
+            <div class="v" data-i18n="hl_3v">Soluciones útiles</div>
           </div>
-          <div class="fact-card">
-            <div class="fact-icon">🌐</div>
+        </div>
+
+        <div class="skills-title" data-i18n="skills_title">Tecnologías</div>
+        <div class="skills-grid">
+          <div class="skill bento"><b>Java</b><i class="fa-solid fa-code"></i></div>
+          <div class="skill bento"><b>Python</b><i class="fa-solid fa-code"></i></div>
+          <div class="skill bento"><b>HTML</b><i class="fa-solid fa-code"></i></div>
+          <div class="skill bento"><b>CSS</b><i class="fa-solid fa-code"></i></div>
+          <div class="skill bento"><b>SQL</b><i class="fa-solid fa-database"></i></div>
+          <div class="skill bento"><b>XAMPP</b><i class="fa-solid fa-server"></i></div>
+          <div class="skill bento"><b>Git</b><i class="fa-brands fa-git-alt"></i></div>
+          <div class="skill bento"><b>Figma</b><i class="fa-brands fa-figma"></i></div>
+          <div class="skill bento"><b>Flutter</b><i class="fa-solid fa-mobile-screen-button"></i></div>
+        </div>
+
+        <div class="skills-title" data-i18n="timeline_title">Experiencia</div>
+        <div class="timeline">
+          <div class="tl bento">
+            <div class="dot"></div>
             <div>
-              <div class="fact-label">Sitio</div>
-              <div class="fact-value">valentinaaaa.me</div>
+              <div class="year" data-i18n="tl1_year">2023 — Presente</div>
+              <div class="role" data-i18n="tl1_role">Estudiante de Ingeniería de Sistemas (7mo semestre)</div>
+              <div class="place" data-i18n="tl1_place">Universidad Simón Bolívar · Cúcuta, Colombia</div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Skills -->
-  <section id="skills">
-    <div class="section-inner">
-      <h2 class="section-title">Habi<span>lidades</span></h2>
-      <div class="section-line"></div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="icon">🌐</div>
-          <h3>HTML &amp; CSS</h3>
-          <p>Maquetación semántica y diseño responsivo con estilos modernos.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="icon">⚡</div>
-          <h3>JavaScript</h3>
-          <p>Interactividad, lógica de negocio y manipulación del DOM.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="icon">⚛️</div>
-          <h3>React</h3>
-          <p>Interfaces dinámicas con componentes reutilizables y hooks.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="icon">🐍</div>
-          <h3>Python</h3>
-          <p>Scripting, automatización y desarrollo de back-end.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="icon">🗄️</div>
-          <h3>Bases de datos</h3>
-          <p>SQL y NoSQL — diseño de esquemas y consultas eficientes.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:60%"></div></div>
-        </div>
-        <div class="skill-card">
-          <div class="icon">🎨</div>
-          <h3>UI / UX</h3>
-          <p>Diseño centrado en el usuario, wireframes y prototipos.</p>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div>
-        </div>
-      </div>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label reveal" data-i18n="projects_label">Mi trabajo</div>
+    <h2 class="section-title reveal"><span data-i18n="projects_title_1">Mis</span> <span data-i18n="projects_title_2">Proyectos</span></h2>
+    <div class="divider reveal"></div>
+
+    <div class="tabs reveal" aria-label="Filtros proyectos">
+      <button class="tab active" data-filter="all"><i class="fa-solid fa-layer-group"></i> <span data-i18n="filter_all">Todos</span></button>
+      <button class="tab" data-filter="web"><i class="fa-solid fa-globe"></i> <span data-i18n="filter_web">Web</span></button>
+      <button class="tab" data-filter="app"><i class="fa-solid fa-mobile-screen-button"></i> <span data-i18n="filter_app">Aplicación</span></button>
+      <button class="tab" data-filter="data"><i class="fa-solid fa-database"></i> <span data-i18n="filter_data">Datos</span></button>
     </div>
+
+    <div class="project-list" id="projectsList"></div>
   </section>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
   <section id="contact">
-    <div class="section-inner">
-      <h2 class="section-title">Con<span>tacto</span></h2>
-      <div class="section-line"></div>
-      <div class="contact-grid">
-        <div class="contact-text">
-          <p>¿Tienes un proyecto en mente o simplemente quieres saludar? ¡Escríbeme! Estoy abierta a colaboraciones y nuevas oportunidades 🚀</p>
-          <div class="social-links">
-            <a href="https://github.com/valentinaBautista-bit" target="_blank" rel="noopener" class="social-link">
-              <span class="sl-icon">🐙</span> GitHub
-            </a>
-            <a href="mailto:hola@valentinaaaa.me" class="social-link">
-              <span class="sl-icon">✉️</span> hola@valentinaaaa.me
-            </a>
-            <a href="https://valentinaaaa.me" class="social-link">
-              <span class="sl-icon">🌐</span> valentinaaaa.me
-            </a>
+    <div class="section-label reveal" data-i18n="contact_label">Hablemos</div>
+    <h2 class="section-title reveal"><span data-i18n="contact_title">Contáctame</span></h2>
+    <div class="divider reveal"></div>
+
+    <div class="contact-grid">
+      <div class="contact-panel bento reveal">
+        <h3 data-i18n="contact_heading">¿Tienes un proyecto en mente?</h3>
+        <p data-i18n="contact_desc">
+          Estoy disponible para colaboraciones, prácticas y proyectos académicos. ¡No dudes en escribirme!
+        </p>
+
+        <div class="contact-item">
+          <div class="c-ico"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <div class="c-label">Email</div>
+            <div class="c-value">valentinabautista499@gmail.com</div>
           </div>
         </div>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label for="name">Nombre</label>
-            <input id="name" type="text" placeholder="Tu nombre" required />
+
+        <div class="contact-item">
+          <div class="c-ico"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="c-label" data-i18n="contact_city_label">Ciudad</div>
+            <div class="c-value">Cúcuta, Colombia</div>
           </div>
-          <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input id="email" type="email" placeholder="tu@correo.com" required />
+        </div>
+
+        <div class="contact-item">
+          <div class="c-ico"><i class="fa-solid fa-building-columns"></i></div>
+          <div>
+            <div class="c-label" data-i18n="contact_inst_label">Institución</div>
+            <div class="c-value">Universidad Simón Bolívar (USB)</div>
           </div>
-          <div class="form-group">
-            <label for="message">Mensaje</label>
-            <textarea id="message" placeholder="¿En qué puedo ayudarte?" required></textarea>
+        </div>
+
+        <div class="socialBtns" aria-label="Redes sociales">
+          <a class="socialBtn" href="https://github.com/valentinabautista-bit" target="_blank" rel="noopener noreferrer">
+            <span class="left"><i class="fa-brands fa-github"></i> GitHub</span>
+            <span class="hint">@valentinabautista-bit</span>
+          </a>
+          <a class="socialBtn" href="https://www.instagram.com/valen_b1030" target="_blank" rel="noopener noreferrer">
+            <span class="left"><i class="fa-brands fa-instagram"></i> Instagram</span>
+            <span class="hint">@valen_b1030</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="formBox bento reveal r">
+        <div class="formHead">
+          <strong data-i18n="form_title">Escríbeme</strong>
+          <span data-i18n="form_note">Responderé pronto</span>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="row">
+            <div>
+              <label for="fname" data-i18n="form_name">Nombre</label>
+              <input id="fname" type="text" placeholder="Tu nombre" required />
+            </div>
+            <div>
+              <label for="femail" data-i18n="form_email">Email</label>
+              <input id="femail" type="email" placeholder="tu@email.com" required />
+            </div>
           </div>
-          <button type="submit" class="btn btn-primary">Enviar mensaje 🚀</button>
+
+          <div>
+            <label for="fsubject" data-i18n="form_subject">Asunto</label>
+            <input id="fsubject" type="text" placeholder="¿De qué se trata?" required />
+          </div>
+
+          <div>
+            <label for="fmsg" data-i18n="form_message">Mensaje</label>
+            <textarea id="fmsg" placeholder="Cuéntame sobre tu proyecto o consulta..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="form_send">Enviar mensaje</span>
+          </button>
+
+          <div class="form-success" id="formSuccess">
+            <i class="fa-solid fa-circle-check"></i> <span data-i18n="form_success">¡Mensaje enviado! Te responderé pronto.</span>
+          </div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>Hecho con <span>💜</span> por Valentina Bautista &nbsp;·&nbsp; <span>valentinaaaa.me</span></p>
+    <div class="footer-logo">Vale.</div>
+    <p>© <span id="year"></span> · <span data-i18n="footer_text">Desarrollado por Valentina Bautista</span></p>
+    <p id="footerCity">Cúcuta, Colombia</p>
   </footer>
 
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.textContent = '¡Enviado! ✅';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = 'Enviar mensaje 🚀';
-        btn.disabled = false;
-        e.target.reset();
-      }, 3000);
-    }
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-    // Animate skill bars on scroll
-    const bars = document.querySelectorAll('.skill-bar');
-    bars.forEach(b => {
-      b.dataset.width = b.style.width;
-      b.style.width = '0';
-    });
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.width = entry.target.dataset.width;
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    bars.forEach(b => observer.observe(b));
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
